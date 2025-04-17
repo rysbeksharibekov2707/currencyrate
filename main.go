@@ -31,8 +31,9 @@ func main() {
 			return false
 		}
 		title := s.Text()
-		link, _ := s.Attr("href")
-		fmt.Printf("%d. %s (%s)\n", i+1, title, link)
+		parent := s.Parent()
+		currency := parent.Find("td.currency").Text()
+		fmt.Printf("%d. %s %s\n", i+1, title, currency)
 		return true
 	})
 	fmt.Println("Парсинг курса валют(продажа):")
@@ -41,8 +42,9 @@ func main() {
 			return false
 		}
 		title := s.Text()
-		link, _ := s.Attr("href")
-		fmt.Printf("%d. %s (%s)\n", i+1, title, link)
+		parent := s.Parent()
+		currency := parent.Find("td.currency").Text()
+		fmt.Printf("%d. %s %s\n", i+1, title, currency)
 		return true
 	})
 }
